@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>whoami</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a1a;
+            color: #00ff00;
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            text-align: center;
+            padding: 100px 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            animation: bounce 2s infinite;
+        }
+
+        header h2 {
+            font-size: 2rem;
+            color: #00ff00;
+            margin-top: 20px;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        .section {
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(20, 20, 20, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSection 2s forwards;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #00ff00;
+            margin-bottom: 20px;
+            transform: translateY(20px);
+            animation: moveUp 0.5s ease-out forwards;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            color: #d1d1d1;
+            line-height: 1.8;
+        }
+
+        .terminal {
+            background-color: #101010;
+            padding: 20px;
+            font-family: 'Press Start 2P', cursive;
+            color: #00ff00;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-size: 1.5rem;
+            width: 100%;
+            height: 180px;
+            overflow-y: auto;
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+            position: relative;
+        }
+
+        input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #00ff00;
+            font-size: 1.5rem;
+            font-family: 'Press Start 2P', cursive;
+            width: 100%;
+            padding: 5px;
+            caret-color: #00ff00;
+            animation: blinkCursor 1s step-end infinite;
+        }
+
+        .contact {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .contact a {
+            font-size: 1.5rem;
+            color: #00ff00;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact a:hover {
+            color: #ffffff;
+        }
+
+        footer {
+            background-color: #101010;
+            color: #00ff00;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInSection {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes typingEffect {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blinkCursor {
+            0% {
+                border-right: 2px solid #00ff00;
+            }
+
+            50% {
+                border-right: 2px solid transparent;
+            }
+
+            100% {
+                border-right: 2px solid #00ff00;
+            }
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes moveUp {
+            0% {
+                transform: translateY(20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.1), rgba(0, 0, 0, 1));
+            z-index: -1;
+            animation: moveBackground 10s linear infinite;
+        }
+
+        .parallax {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translateX(-50%);
+            animation: parallaxEffect 5s infinite linear;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        @keyframes parallaxEffect {
+            0% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <header>
+        <h1>Taha's Digital Domain</h1>
+        <h2>Bug Hunter | Pentester | Hacker</h2>
+    </header>
+
+    <section class="section">
+        <h2>About Me</h2>
+        <p>I am Taha, a passionate Penetration Tester and a professional Hunter. I break barriers both in the digital
+            world. My goal is to ensure security and uncover vulnerabilities in the systems that need them
+            the most.</p>
+    </section>
+
+    <section class="section">
+        <h2>Skills</h2>
+        <p>Penetration Testing, Exploit Development, Digital Security, Vulnerability Research, and more...</p>
+    </section>
+
+    <section class="section">
+        <h2>My Projects</h2>
+        <p>I have discovered critical vulnerabilities in top platforms like Snapp, Digikala, and Tapsi. Always exploring
+            new possibilities to keep the digital world safe and secure.</p>
+    </section>
+
+    <section class="section">
+        <div class="terminal">
+            <p id="terminalOutput">Starting Penetration Test... SYSTEM CHECK: Passed. Searching for vulnerabilities...
+            </p>
+            <input type="text" id="userInput" placeholder="Type your command here..." onkeydown="handleInput(event)">
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Contact Me</h2>
+        <p>Reach out to me via <a href="https://t.me/wovll" target="_blank">Telegram</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Taha - Digital Security & Kickboxing</p>
+    </footer>
+
+    <script>
+        function handleInput(event) {
+            if (event.key === 'Enter') {
+                const inputElement = document.getElementById('userInput');
+                const terminal = document.querySelector('.terminal');
+                const userText = inputElement.value;
+                inputElement.value = '';
+
+                const commandText = document.createElement('p');
+                commandText.textContent = `> ${userText}`;
+                terminal.appendChild(commandText);
+
+                setTimeout(() => {
+                    const responseText = document.createElement('p');
+                    responseText.textContent = `Processing command: ${userText}...`;
+                    terminal.appendChild(responseText);
+                    terminal.scrollTop = terminal.scrollHeight;
+                }, 1000);
+
+                setTimeout(() => {
+                    const terminalResponse = document.createElement('p');
+                    terminalResponse.textContent = `> ${userText} executed successfully.`;
+                    terminal.appendChild(terminalResponse);
+                    terminal.scrollTop = terminal.scrollHeight;
+                }, 2000);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
